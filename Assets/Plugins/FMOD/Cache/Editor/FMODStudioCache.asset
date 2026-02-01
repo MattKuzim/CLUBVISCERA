@@ -15,36 +15,9 @@ MonoBehaviour:
   Path: Assets/Audio/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639055517375884286
+  lastModified: 639055530836989495
   FileSizes: []
   Exists: 1
---- !u!114 &-7800202322287130359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/TEST
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/TEST
-  Guid:
-    Data1: 551081683
-    Data2: 1308248326
-    Data3: -423555703
-    Data4: 131750271
-  Banks:
-  - {fileID: -8476745550634803976}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &-4190649824101146613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,12 +82,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Music/Music_Type
+  m_Name: parameter:/Music/Music_Intensity
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
-  Name: Music_Type
+  Name: Music_Intensity
   StudioPath: 
   Min: 0
-  Max: 3
+  Max: 2
   Default: 0
   ID:
     data1: 2498730554
@@ -122,10 +95,9 @@ MonoBehaviour:
   Type: 2
   IsGlobal: 0
   Labels:
-  - Menu
-  - Early_Game
-  - Late_Game
-  - Game_End
+  - Low
+  - Medium
+  - High
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -146,14 +118,13 @@ MonoBehaviour:
   - {fileID: -3756661355673460592}
   - {fileID: -4190649824101146613}
   - {fileID: 5153095493601103025}
-  - {fileID: -7800202322287130359}
   EditorParameters: []
   MasterBanks:
   - {fileID: -8476745550634803976}
   StringsBanks:
   - {fileID: 5744763124333629665}
   cacheVersion: 131858
-  cacheTime: 639055517375891165
+  cacheTime: 639055530836996428
   SerializableEventsDict:
   - key: event:/Footsteps
     index: 0
@@ -161,8 +132,6 @@ MonoBehaviour:
     index: 1
   - key: event:/Music
     index: 2
-  - key: event:/TEST
-    index: 3
 --- !u!114 &5153095493601103025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,8 +175,8 @@ MonoBehaviour:
   Path: Assets/Audio/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639055517375891165
+  lastModified: 639055530836996428
   FileSizes:
   - Name: 
-    Value: 944
+    Value: 914
   Exists: 1
