@@ -1,4 +1,5 @@
 using UnityEngine;
+using FMOD;
 
 public class PlayerWeapon : MonoBehaviour
 {
@@ -8,18 +9,35 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] VisceraGameManager gameManager;
  
     public float range = 50f;
+    public float shootRate;
 
+    private float shootRhythmTimer = 0f;
     void Start()
     {
-        Debug.Log("Weapon Active");
+        //Debug.Log("Weapon Active");
     }
 
     void Update()
     {
+        if (Input.GetMouseButtonDown(0)){
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Guncock");
+        }
+
+        if (shootRhythmTimer > 0f)
+        {
+            shootRhythmTimer -= Time.deltaTime;
+        }
+        else
+        {
+            if (Input.GetMouseButton(0)){
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Gunshot");
+            shootRhythmTimer = shootRate;
+            }
+        }
         if (Input.GetMouseButton(0))
         {
             Shoot();
-            Debug.Log("Ray Casted");
+          //  Debug.Log("Ray Casted");
 
             if (gunAnimator != null && bobberAnimator != null)
             {
@@ -29,7 +47,7 @@ public class PlayerWeapon : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("Animators not assigned in PlayerWeapon script.");
+              //  Debug.LogWarning("Animators not assigned in PlayerWeapon script.");
             }
             
         }
@@ -67,7 +85,7 @@ public class PlayerWeapon : MonoBehaviour
                 
                 damageable.ReceiveDamage(10);
             }
-            Debug.Log("Hit: " + hit.transform.name);
+          //  Debug.Log("Hit: " + hit.transform.name);
         }
     }
 }
