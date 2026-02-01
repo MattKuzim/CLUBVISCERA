@@ -3,12 +3,14 @@ using UnityEngine;
 public class PlayerShover : MonoBehaviour
 {
     [SerializeField] private float shoveForce = 10f;
+    [SerializeField] private Animator offhandAnimator;
     private Rigidbody rb;
     
     
 
     void Start()
     {
+      
         rb = GetComponent<Rigidbody>();
     }
 
@@ -23,6 +25,13 @@ public class PlayerShover : MonoBehaviour
             
             // Pass force and direction (using x-axis as reference for direction float)
             damageable.OnShove(shoveForce, collisionDirection);
+
+            if (offhandAnimator != null)
+            {
+                
+                offhandAnimator.SetTrigger("shove");
+            }
+       
         }
     }
 }

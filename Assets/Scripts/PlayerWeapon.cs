@@ -4,6 +4,9 @@ public class PlayerWeapon : MonoBehaviour
 {
     [SerializeField] private Animator bobberAnimator;
     [SerializeField] private Animator gunAnimator;
+
+    [SerializeField] VisceraGameManager gameManager;
+ 
     public float range = 50f;
 
     void Start()
@@ -22,6 +25,7 @@ public class PlayerWeapon : MonoBehaviour
             {
                 gunAnimator.SetBool("firing", true);
                 bobberAnimator.SetBool("firing", true);
+            
             }
             else
             {
@@ -35,6 +39,7 @@ public class PlayerWeapon : MonoBehaviour
             {
                 gunAnimator.SetBool("firing", false);
                 bobberAnimator.SetBool("firing", false);
+           
             }
         }
     }
@@ -48,6 +53,20 @@ public class PlayerWeapon : MonoBehaviour
 
         if (Physics.Raycast(Camera.main.transform.position, fwd, out hit, range))
         {
+            
+            if(hit.transform.GetComponent<IReceiveDamage>() != null)
+            {
+                IReceiveDamage damageable = hit.transform.GetComponent<IReceiveDamage>();
+                
+                MasqueradeGuest guest = hit.transform.GetComponent<MasqueradeGuest>();
+                if (guest != null)
+                {
+                    gameManager.CheckIfTargetKilled(guest.guestId);
+                }
+                
+                
+                damageable.ReceiveDamage(10);
+            }
             Debug.Log("Hit: " + hit.transform.name);
         }
     }

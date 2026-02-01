@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+
 public class PlayerMovementObserver : MonoBehaviour
 {
     
@@ -8,6 +9,8 @@ public class PlayerMovementObserver : MonoBehaviour
     [SerializeField] TMP_Text stateText;
 
     [SerializeField] private Animator bobberAnimator;
+    
+    [SerializeField] private Animator offhandAnimator;
   //  [SerializeField] private Animator gunAnimator; WE MIGHT NEED THIS LATER
     public SimpleCharacter playerController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -46,6 +49,7 @@ public class PlayerMovementObserver : MonoBehaviour
         else
         {
             currentState = "In Air";
+            
         }
 
         Debug.Log("Player State: " + currentState);
@@ -56,7 +60,8 @@ public class PlayerMovementObserver : MonoBehaviour
         bobberAnimator.SetBool("idle", false);
         bobberAnimator.SetBool("jump", false);
         bobberAnimator.SetBool("sprint", false);
-        
+
+        offhandAnimator.SetBool("airborne", false);
         switch (currentState)
         {  
               
@@ -81,6 +86,7 @@ public class PlayerMovementObserver : MonoBehaviour
                 break;
             case "In Air":
                 bobberAnimator.SetBool("jump", true);
+                offhandAnimator.SetBool("airborne", true);
             // Handle in air statebreak;
                 break;
             default:

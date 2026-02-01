@@ -11,6 +11,11 @@ public class MasqueradeGenerator : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+     
+    }
+    
+    public void GenerateqGuests()
+    {
         existingMasqIds = new int[spawnPoints.Length];
 
         for (int i = 0; i < spawnPoints.Length; i++)
@@ -22,10 +27,16 @@ public class MasqueradeGenerator : MonoBehaviour
             GameObject newGuest = Instantiate(masqueradeGuestPrefab, spawnPoints[i].position, spawnPoints[i].rotation);
             MasqueradeGuest guestScript = newGuest.GetComponent<MasqueradeGuest>();
             guestScript.guestId = newMasqId;
+            guestScript.DeclareId();
         }
     }
-
-    
+    public int GetTargetMasqueradeId()
+    {
+        
+        int index = Random.Range(0, existingMasqIds.Length -1);
+        
+        return existingMasqIds[index];
+    }
    int GenerateRandomMasqueradeId()
     {
         int randId = Random.Range(1000, 9999);
