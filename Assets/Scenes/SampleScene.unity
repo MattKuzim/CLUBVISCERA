@@ -2248,6 +2248,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   shoveForce: 10
+--- !u!114 &2138577592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138577586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1710576543
+      Data2: 1152710402
+      Data3: 2010979517
+      Data4: 2142547007
+    Path: event:/Music
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1252214035235162862
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2376,13 +2407,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3531868962620258613, guid: 4c10c413bda1c43b29778d9b915270c5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2138577591}
+    - targetCorrespondingSourceObject: {fileID: 3531868962620258613, guid: 4c10c413bda1c43b29778d9b915270c5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2138577592}
     - targetCorrespondingSourceObject: {fileID: 6425420474961547754, guid: 4c10c413bda1c43b29778d9b915270c5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 330585548}
