@@ -3,7 +3,8 @@ using UnityEngine;
 
 public interface IReceiveDamage
 {
-    
+
+
 
 
    public void ReceiveDamage(int damageAmount);
@@ -13,6 +14,7 @@ public interface IReceiveDamage
 }
 public class NPCBasic : MonoBehaviour, IReceiveDamage
 { 
+    [SerializeField] Transform mask;
     [SerializeField] float shotCooldown;
     public Animator NPCAnimator { get; set; }
     public bool beingShot;
@@ -29,10 +31,15 @@ public class NPCBasic : MonoBehaviour, IReceiveDamage
     {
         shotCooldown -= Time.deltaTime;
         if (shotCooldown <= 0.90f)
-        {beingShot = false;}
+        {
+            beingShot = false;
+            
+            
+        }
 
         else
         {
+          
             beingShot = true;
            
         }
@@ -42,7 +49,7 @@ public class NPCBasic : MonoBehaviour, IReceiveDamage
     public void ReceiveDamage(int damageAmount)
     {
         Debug.Log(gameObject.name + " received " + damageAmount + " damage.");
-
+        mask.gameObject.SetActive(false);
         shotCooldown = 1f;
     }
     public void OnShove(float forceAmount, Vector3 direction)

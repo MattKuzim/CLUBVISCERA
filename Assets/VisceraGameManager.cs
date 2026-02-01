@@ -22,7 +22,13 @@ public class VisceraGameManager : MonoBehaviour
 
     }
 
-
+    public void Lose()
+    {
+        
+        loseScreen.gameObject.SetActive(true);
+        timer.PauseTimer();
+        
+    }
     public void CheckIfTargetKilled(int id)
     {
         

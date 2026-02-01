@@ -7,6 +7,8 @@ public class TimerCountDown : MonoBehaviour
     [SerializeField] private TMP_Text timerText = null;
     [SerializeField] private bool startOnAwake = true;
     [SerializeField] private string timeFormat = "F2"; // F2 = two decimal places
+    
+    [SerializeField] VisceraGameManager gameManager;
 
     private float timeLeft;
     private bool running;
@@ -26,11 +28,14 @@ public class TimerCountDown : MonoBehaviour
         if (timeLeft <= 0f)
         {
             timeLeft = 0f;
+            
+            gameManager.Lose();
             running = false;
             // Timer reached zero — additional logic can be added here
         }
 
         UpdateText();
+        
     }
 
     private void UpdateText()
